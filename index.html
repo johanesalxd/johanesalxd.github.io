@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johanes Alexander - Data Architect & AI Agent Developer</title>
+    <meta name="description" content="Experienced Data Architect & AI Agent Developer specializing in bridging traditional data engineering with cutting-edge AI agents.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-primary: #1a1b26;
+            --bg-secondary: #24283b;
+            --bg-card: #1f2335;
+            --text-primary: #c0caf5;
+            --text-secondary: #a9b1d6;
+            --primary-color: #7aa2f7;
+            --accent-color: #bb9af7;
+            --border-color: #414868;
+            --gradient-1: linear-gradient(135deg, #7aa2f7 0%, #bb9af7 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient-1);
+            color: var(--text-primary);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .header .description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.8rem 1.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-secondary);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff;
+            background: var(--primary-color);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section:nth-child(odd) {
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* Current Focus */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .focus-item {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .focus-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .focus-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Speaking Engagements */
+        .speaking-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .speaking-item {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            border-left-width: 4px;
+        }
+
+        .speaking-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .speaking-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .speaking-item h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .speaking-item h3 a:hover {
+            color: var(--accent-color);
+        }
+
+        .speaking-item .date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .speaking-item .talk-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .speaking-item .topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .topic-tag {
+            background: var(--bg-primary);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tech-item {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .tech-item img {
+            height: 48px;
+            width: 48px;
+            filter: invert(84%) sepia(13%) saturate(1567%) hue-rotate(190deg) brightness(99%) contrast(94%);
+        }
+
+        .tech-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .project-category {
+            margin-bottom: 3rem;
+        }
+
+        .project-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .projects-list {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-item {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-item h4 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-item h4 a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .project-tech {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-features {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Competencies */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .competency-item {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .competency-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .competency-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .competency-list {
+            list-style: none;
+        }
+
+        .competency-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .competency-list li::before {
+            content: '▶';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* GitHub Stats */
+        .github-stats {
+            text-align: center;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+        }
+
+        .github-stats img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 4rem 0;
+            margin-top: 50px; /* Added margin to help with scrolling to last section */
+        }
+
+        .footer-tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .competencies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .github-stats {
+                padding: 2rem 1rem;
+            }
+
+            .github-stats img {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Johanes Alexander</h1>
+                <p class="subtitle">Data Architect & AI Agent Developer</p>
+                <p class="description">
+                    Experienced professional specializing in bridging traditional data engineering with cutting-edge AI agents.
+                    Combining deep expertise in cloud architecture, data analytics, and machine learning engineering to design
+                    end-to-end data solutions that drive business value.
+                </p>
+                <div class="social-links">
+                    <a href="https://x.com/johanesalxd" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        Twitter
+                    </a>
+                    <a href="https://www.linkedin.com/in/johanesalxd" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/johanesalxd" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#focus" class="nav-link">Current Focus</a>
+                <a href="#speaking" class="nav-link">Speaking</a>
+                <a href="#tech" class="nav-link">Tech Stack</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#competencies" class="nav-link">Expertise</a>
+                <a href="#stats" class="nav-link">GitHub Stats</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Current Focus -->
+    <section id="focus" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">🤖 Current Focus: AI & Agentic Systems</h2>
+            <div class="focus-grid">
+                <div class="focus-item fade-in">
+                    <h3>Data Agents Development</h3>
+                    <p>Creating intelligent agents for data processing and analysis that combine traditional data engineering with autonomous decision-making capabilities.</p>
+                </div>
+                <div class="focus-item fade-in">
+                    <h3>Agentic Workflows</h3>
+                    <p>Designing autonomous systems for data pipeline management that can adapt and optimize themselves based on changing requirements.</p>
+                </div>
+                <div class="focus-item fade-in">
+                    <h3>AI-Powered Data Solutions</h3>
+                    <p>Integrating LLMs with traditional data engineering patterns to create next-generation data processing systems.</p>
+                </div>
+            </div>
+            <div class="focus-item fade-in" style="max-width: 800px; margin: 0 auto;">
+                <h3>🔬 Current Project</h3>
+                <p>Developing custom data agents based on <a href="https://github.com/johanesalxd/adk-samples/tree/main/python/agents/data-science" target="_blank" style="color: var(--primary-color);">ADK samples</a>, combining my data expertise with agentic AI capabilities to create intelligent data processing workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speaking -->
+    <section id="speaking" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">🎤 Community Contributions & Speaking</h2>
+            <p class="fade-in" style="text-align: center; margin-bottom: 3rem; font-size: 1.1rem; color: var(--text-secondary);">
+                As a thought leader in data analytics and AI, I actively contribute to the developer community through speaking engagements and knowledge sharing.
+            </p>
+            <div class="speaking-grid">
+                <div class="speaking-item fade-in">
+                    <h3><a href="https://gdg.community.dev/events/details/google-gdg-singapore-presents-google-cloud-next-extended-singapore-2025/cohost-gdg-singapore" target="_blank">Google Cloud Next Extended Singapore 2025</a></h3>
+                    <div class="date">June 14, 2025</div>
+                    <div class="talk-title">"Metadata: The Key to Unlocking Data Analytics in the Agentic Era"</div>
+                    <p>Presented insights on Google Cloud's latest data analytics innovations from Next '25, focusing on AI integration with BigQuery and the crucial role of metadata in enabling AI agents. Covered specialized AI agents for various user roles, AI-assisted notebooks, and the BigQuery AI Query Engine's capabilities with both structured and unstructured data.</p>
+                    <div class="topics">
+                        <span class="topic-tag">BigQuery metadata</span>
+                        <span class="topic-tag">AI agents</span>
+                        <span class="topic-tag">Data governance</span>
+                        <span class="topic-tag">Query optimization</span>
+                        <span class="topic-tag">Autonomous data processing</span>
+                    </div>
+                </div>
+                <div class="speaking-item fade-in">
+                    <h3><a href="https://gdg.community.dev/events/details/google-gdg-singapore-presents-gdg-monthly-meetup-10/" target="_blank">GDG Monthly Meetup #10</a></h3>
+                    <div class="date">October 24, 2024</div>
+                    <div class="talk-title">"Harnessing Real-Time Insights: LLM Inference for Streaming Data with SQL"</div>
+                    <p>Explored practical techniques for performing real-time inference on streaming data using large language models (LLMs) and SQL. Demonstrated seamless integration of LLMs into existing application workflows, enabling real-time insights, predictions, and classifications directly within familiar SQL environments.</p>
+                    <div class="topics">
+                        <span class="topic-tag">Real-time data processing</span>
+                        <span class="topic-tag">LLM integration</span>
+                        <span class="topic-tag">Streaming analytics</span>
+                        <span class="topic-tag">SQL-based AI inference</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="tech" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">🛠️ Tech Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/go.svg" alt="Go">
+                    <span>Go</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" alt="Python">
+                    <span>Python</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/apachespark.svg" alt="Apache Spark">
+                    <span>Apache Spark</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlebigquery.svg" alt="BigQuery">
+                    <span>BigQuery</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg" alt="Google Cloud">
+                    <span>Google Cloud</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftazure.svg" alt="Azure">
+                    <span>Azure</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postgresql.svg" alt="PostgreSQL">
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/redis.svg" alt="Redis">
+                    <span>Redis</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg" alt="Docker">
+                    <span>Docker</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/apachecassandra.svg" alt="Cassandra">
+                    <span>Cassandra</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/apachekafka.svg" alt="Kafka">
+                    <span>Kafka</span>
+                </div>
+                <div class="tech-item fade-in">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mysql.svg" alt="MySQL">
+                    <span>MySQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">🚀 Featured Projects</h2>
+
+            <div class="project-category fade-in">
+                <h3>🤖 AI & Developer Tools</h3>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <h4><a href="https://github.com/johanesalxd/mcp-cr" target="_blank">mcp-cr - Model Context Protocol Server</a></h4>
+                        <p>A comprehensive tutorial for deploying MCP (Model Context Protocol) servers to Google Cloud Run, featuring a zoo animal database with interactive tools. Demonstrates modern AI integration patterns with cloud-native deployment.</p>
+                        <div class="project-tech"><strong>Tech Stack:</strong> Python, FastMCP, Google Cloud Run, Docker</div>
+                        <div class="project-features"><strong>Key Features:</strong> MCP server implementation, Cloud Run deployment, Interactive AI tools, RESTful API</div>
+                    </div>
+                    <div class="project-item">
+                        <h4><a href="https://github.com/johanesalxd/gemini-cli-1c" target="_blank">gemini-cli-1c - One-Click Gemini CLI Setup</a></h4>
+                        <p>Automated installation script for complete development environment setup with NVM, Node.js, and Google's Gemini CLI. Streamlines developer onboarding for AI-powered workflows.</p>
+                        <div class="project-tech"><strong>Tech Stack:</strong> Shell, Node.js, NVM, Gemini CLI</div>
+                        <div class="project-features"><strong>Key Features:</strong> One-command installation, Environment configuration, Developer productivity tools</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-category fade-in">
+                <h3>📊 Data Engineering & Analytics</h3>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <h4><a href="https://github.com/johanesalxd/spark-hybrid-compute" target="_blank">spark-hybrid-compute - Advanced Spark Integration</a></h4>
+                        <p>Comprehensive solution for Spark integration with BigLake Metastore and Apache Iceberg, supporting both Dataproc and Docker-based deployments. Demonstrates hybrid cloud computing patterns for modern data lakes.</p>
+                        <div class="project-tech"><strong>Tech Stack:</strong> Apache Spark, BigLake, Apache Iceberg, Dataproc, Docker, Jupyter</div>
+                        <div class="project-features"><strong>Key Features:</strong> Hybrid cloud architecture, Iceberg table management, BigQuery integration, Multiple deployment options</div>
+                    </div>
+                    <div class="project-item">
+                        <h4><a href="https://github.com/johanesalxd/bigquery-antipattern-recognition" target="_blank">bigquery-antipattern-recognition - BigQuery SQL Optimization Tool</a></h4>
+                        <p>Enhanced fork of Google Cloud Platform's utility for identifying and rewriting common anti-patterns in BigQuery SQL syntax. Added advanced features including query grouping functionality and clustering optimization patterns to improve query performance analysis.</p>
+                        <div class="project-tech"><strong>Tech Stack:</strong> Java, BigQuery, Maven, Docker, Cloud Run, Vertex AI</div>
+                        <div class="project-features"><strong>Key Features:</strong> 15+ antipattern detections, AI-powered SQL rewriting, Query grouping analysis, Remote UDF deployment, CI/CD integration</div>
+                    </div>
+                    <div class="project-item">
+                        <h4><a href="https://github.com/johanesalxd/cf-bq-rf-gemini" target="_blank">cf-bq-rf-gemini - BigQuery AI Integration</a></h4>
+                        <p>BigQuery Remote Function implementation that integrates Gemini AI directly into SQL queries, enabling AI-powered data processing at scale within BigQuery workflows.</p>
+                        <div class="project-tech"><strong>Tech Stack:</strong> Go, BigQuery Remote Functions, Gemini AI, Cloud Functions</div>
+                        <div class="project-features"><strong>Key Features:</strong> SQL-native AI integration, Scalable processing, Custom model configurations and proper error handling</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-category fade-in">
+                <h3>🔄 Real-Time Data Pipelines</h3>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <h4><a href="https://github.com/johanesalxd/audio-transcribe-go" target="_blank">audio-transcribe-go - Speech-to-Text Service</a></h4>
+                        <p>Production-ready speech-to-text application designed for BigQuery Remote Functions, enabling audio transcription directly within SQL workflows. Supports multiple deployment options and comprehensive testing.</p>
+                        <div class="project-tech"><strong>Tech Stack:</strong> Go, Google Speech-to-Text API, BigQuery Remote Functions, Cloud Functions</div>
+                        <div class="project-features"><strong>Key Features:</strong> BigQuery integration, Multiple deployment options, Comprehensive testing, Production-ready</div>
+                    </div>
+                    <div class="project-item">
+                        <h4><a href="https://github.com/johanesalxd/cf-pubsub-to-bq" target="_blank">cf-pubsub-to-bq - Real-Time Data Ingestion</a></h4>
+                        <p>Complete real-time data pipeline solution from Pub/Sub to BigQuery using Cloud Run Functions. Includes data generation, streaming processing, and automated table management.</p>
+                        <div class="project-tech"><strong>Tech Stack:</strong> Go, Pub/Sub, BigQuery, Cloud Run Functions, Dataflow</div>
+                        <div class="project-features"><strong>Key Features:</strong> Real-time processing, Automated data generation, Partitioned tables, End-to-end pipeline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competencies -->
+    <section id="competencies" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">💼 Core Competencies</h2>
+            <div class="competencies-grid">
+                <div class="competency-item fade-in">
+                    <h3>Data Architecture & Engineering</h3>
+                    <ul class="competency-list">
+                        <li><strong>Big Data Processing:</strong> Apache Spark, Dataproc, distributed computing</li>
+                        <li><strong>Data Warehousing:</strong> BigQuery, data modeling, partitioning strategies</li>
+                        <li><strong>Real-Time Streaming:</strong> Pub/Sub, Kafka, event-driven architectures</li>
+                        <li><strong>Database Technologies:</strong> PostgreSQL, MySQL, Redis, Cassandra</li>
+                    </ul>
+                </div>
+                <div class="competency-item fade-in">
+                    <h3>AI & Machine Learning</h3>
+                    <ul class="competency-list">
+                        <li><strong>AI Agents:</strong> Data science agents, agentic workflows, autonomous systems</li>
+                        <li><strong>LLM Integration:</strong> Gemini AI, prompt engineering, AI-powered data processing</li>
+                        <li><strong>ML Engineering:</strong> Model deployment, MLOps, production ML systems</li>
+                    </ul>
+                </div>
+                <div class="competency-item fade-in">
+                    <h3>Cloud Architecture</h3>
+                    <ul class="competency-list">
+                        <li><strong>Google Cloud Platform:</strong> Comprehensive expertise across data, AI, and compute services</li>
+                        <li><strong>Microsoft Azure:</strong> Enterprise cloud solutions and data platforms</li>
+                        <li><strong>Serverless Computing:</strong> Cloud Functions, Cloud Run, event-driven architectures</li>
+                        <li><strong>Infrastructure as Code:</strong> Terraform, deployment automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Stats -->
+    <section id="stats" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">📈 GitHub Stats</h2>
+            <div class="github-stats fade-in">
+                <img src="https://github-readme-stats.vercel.app/api?username=johanesalxd&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="GitHub Stats">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=johanesalxd&layout=compact&langs_count=7&theme=tokyonight" alt="Top Languages">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-tagline">
+                Building the future of data-driven AI systems, one agent at a time 🚀
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.body.scrollHeight;
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollPosition >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Special case for the last section
+            if (scrollPosition + windowHeight >= documentHeight - 100) {
+                current = sections[sections.length - 1].getAttribute('id');
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
