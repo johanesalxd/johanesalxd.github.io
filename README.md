@@ -1,6 +1,6 @@
 # johanesalxd.github.io
 
-Personal site for [johanesalxd.cc](https://johanesalxd.cc) — Data Architect & AI Agent Developer.
+Personal site for [johanesalxd.cc](https://johanesalxd.cc) — Data & AI Architect.
 
 > This README documents how the custom domain `johanesalxd.cc` was set up as the primary URL for this GitHub Pages site. Written as a personal learning reference — ELI5 style.
 
